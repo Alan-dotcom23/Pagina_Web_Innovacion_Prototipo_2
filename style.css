@@ -1,0 +1,241 @@
+/* Fuente general */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #0f1117;
+  color: #e0e0e0;
+
+/* Portada */
+}
+.portada {
+  max-width: 100%;
+  height: auto;
+  margin-top: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 216, 255, 0.2);
+}
+
+/* NAVBAR */
+nav {
+  background-color: #1a1d2a;
+  padding: 10px 20px;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li a {
+  color: #00d8ff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #00ffb3;
+}
+
+/* HEADER */
+header {
+  background: linear-gradient(to right, #1e3c72, #2a5298);
+  color: white;
+  padding: 40px;
+  text-align: center;
+}
+
+/* MAIN */
+main {
+  padding: 20px;
+}
+
+h2 {
+  color: #00d8ff;
+  text-align: center;
+}
+
+.botones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+button {
+  background-color: #00d8ff;
+  color: #0f1117;
+  border: none;
+  padding: 12px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #00ffb3;
+  transform: scale(1.05);
+}
+
+/* Info animación */
+.info {
+  background-color: #1a1d2a;
+  border-left: 4px solid #00d8ff;
+  padding: 20px;
+  margin-top: 20px;
+  display: none;
+  animation: fadeIn 0.8s ease-in-out;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+}
+
+.info img {
+  max-width: 100%;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+/* Animación futurista */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+button {
+  background: linear-gradient(90deg, #00d8ff, #00ffb3);
+  color: #0f1117;
+  border: none;
+  padding: 12px 20px;
+  cursor: pointer;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.07);
+  box-shadow: 0 0 10px #00ffb3;
+}
+
+/* FOOTER */
+footer {
+  background-color: #1a1d2a;
+  text-align: center;
+  padding: 15px;
+  color: #888;
+  margin-top: 40px;
+}
+
+#contacto {
+  background-color: #1a1d2a;
+  padding: 30px;
+  border-top: 2px solid #00d8ff;
+  margin-top: 40px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 216, 255, 0.1);
+  text-align: center;
+}
+
+#contacto a {
+  color: #00d8ff;
+  text-decoration: none;
+}
+
+#contacto a:hover {
+  text-decoration: underline;
+}
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #00d8ff;
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+    background-color: #1a1d2a;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    border: 1px solid #00d8ff;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 216, 255, 0.2);
+  }
+
+  nav ul.visible {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+.flex-layout {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.izquierda, .derecha {
+  flex: 1 1 45%;
+}
+
+.izquierda h1, .derecha h2 {
+  margin-top: 0;
+}
+
+/* Asegura que en pantallas pequeñas se vean en columna */
+@media (max-width: 768px) {
+  .flex-layout {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .izquierda, .derecha {
+    flex: 1 1 100%;
+  }
+}
+.contenido-centro {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+.areas-app {
+  text-align: center;
+  margin-top: 60px;
+  padding: 20px;
+}
+.scroll-anim {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scroll-anim.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

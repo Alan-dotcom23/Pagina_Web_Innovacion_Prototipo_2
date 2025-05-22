@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Inicio - Aplicaciones del Software</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<script src="script.js"></script>
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('menu');
+    menu.classList.toggle('visible');
+  }
+</script>
+
+<nav>
+  <button class="menu-toggle" aria-label="Abrir menú" onclick="toggleMenu()">&#9776;</button>
+  <ul id="menu">
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+  </ul>
+</nav>
+
+
+<header class="flex-layout scroll-anim">
+  <div class="izquierda">
+    <h1>Bienvenido</h1>
+    <p>Explora cómo el software transforma diferentes sectores del mundo real.</p>
+  </div>
+  <div class="derecha">
+    <img src="img/EduSoftware.png" alt="Portada de software" class="portada" />
+  </div>
+</header>
+
+<main>
+  <section class="contenido-centro scroll-anim">
+    <h2>¿Qué es el software?</h2>
+    <p>El software es el conjunto de programas que permiten el funcionamiento de dispositivos tecnológicos. Gracias a ellos, podemos comunicarnos, aprender, entretenernos y trabajar.</p>
+  </section>
+
+  <section class="areas-app scroll-anim">
+    <h2>Áreas de Aplicación</h2>
+    <p>Descubre en qué sectores se aplica el software en la vida real.</p>
+
+    <div class="botones">
+      <button onclick="mostrarInfo('educacion')">Educación</button>
+      <button onclick="mostrarInfo('medicina')">Medicina</button>
+      <button onclick="mostrarInfo('ingenieria')">Ingeniería</button>
+      <button onclick="mostrarInfo('entretenimiento')">Entretenimiento</button>
+    </div>
+
+    <div id="info-area" class="info futurista"></div>
+  </section>
+</main>
+
+
+
+  <footer>
+    <p>&copy; 2025 Trabajo Escolar - Aplicaciones del Software</p>
+  </footer>
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('menu');
+    menu.classList.toggle('visible');
+  }
+
+  // Animaciones que se activan y se desactivan al hacer scroll
+  const animElements = document.querySelectorAll('.scroll-anim');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      } else {
+        entry.target.classList.remove('visible');
+      }
+    });
+  }, {
+    threshold: 0.2
+  });
+
+  animElements.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
