@@ -1,55 +1,94 @@
-/* Fuente general */
+/* --- Estilos generales y fuente --- */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
   background-color: #0f1117;
   color: #e0e0e0;
-
-/* Portada */
-}
-.portada {
-  max-width: 100%;
-  height: auto;
-  margin-top: 20px;
-  border-radius: 15px;
-  box-shadow: 0 0 20px rgba(0, 216, 255, 0.2);
+  line-height: 1.5;
 }
 
-/* NAVBAR */
+/* --- NAV --- */
 nav {
   background-color: #1a1d2a;
   padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 1000;
 }
 
-nav ul {
+nav ul.menu {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
   gap: 20px;
+  transition: opacity 0.3s ease;
 }
 
-nav ul li a {
+nav ul.menu li a {
   color: #00d8ff;
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s ease;
 }
 
-nav ul li a:hover {
+nav ul.menu li a:hover,
+nav ul.menu li a:focus-visible {
   color: #00ffb3;
+  outline: none;
 }
 
-/* HEADER */
-header {
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #00d8ff;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.menu-toggle:focus-visible {
+  outline: 3px solid #00ffb3;
+  outline-offset: 2px;
+}
+
+/* Logo */
+.logo-nav {
+  height: 40px;
+  vertical-align: middle;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.logo-nav:hover,
+.logo-nav:focus-visible {
+  transform: scale(1.1);
+  outline: none;
+}
+
+/* --- HEADER CENTRADO --- */
+.header-centrado {
   background: linear-gradient(to right, #1e3c72, #2a5298);
   color: white;
-  padding: 40px;
+  padding: 60px 20px;
   text-align: center;
 }
 
-/* MAIN */
+.header-centrado h1 {
+  font-size: 3em;
+  margin-bottom: 10px;
+}
+
+.header-centrado p {
+  font-size: 1.2em;
+  margin: 0;
+}
+
+/* --- MAIN --- */
 main {
   padding: 20px;
 }
@@ -59,6 +98,7 @@ h2 {
   text-align: center;
 }
 
+/* Botones */
 .botones {
   display: flex;
   flex-wrap: wrap;
@@ -68,51 +108,6 @@ h2 {
 }
 
 button {
-  background-color: #00d8ff;
-  color: #0f1117;
-  border: none;
-  padding: 12px 20px;
-  cursor: pointer;
-  border-radius: 5px;
-  font-weight: bold;
-  transition: background 0.3s ease, transform 0.2s ease;
-}
-
-button:hover {
-  background-color: #00ffb3;
-  transform: scale(1.05);
-}
-
-/* Info animación */
-.info {
-  background-color: #1a1d2a;
-  border-left: 4px solid #00d8ff;
-  padding: 20px;
-  margin-top: 20px;
-  display: none;
-  animation: fadeIn 0.8s ease-in-out;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
-}
-
-.info img {
-  max-width: 100%;
-  border-radius: 10px;
-  margin-top: 10px;
-}
-
-/* Animación futurista */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.96);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-button {
   background: linear-gradient(90deg, #00d8ff, #00ffb3);
   color: #0f1117;
   border: none;
@@ -121,121 +116,164 @@ button {
   border-radius: 8px;
   font-weight: bold;
   transition: transform 0.2s ease, box-shadow 0.3s ease;
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
-button:hover {
+button i {
+  margin-right: 8px;
+}
+
+button:hover,
+button:focus-visible {
+  background: linear-gradient(90deg, #00ffb3, #00d8ff);
   transform: scale(1.07);
-  box-shadow: 0 0 10px #00ffb3;
+  box-shadow: 0 0 15px #00ffb3;
+  outline: none;
 }
 
-/* FOOTER */
-footer {
+button:focus-visible {
+  outline: 3px solid #00ffb3;
+  outline-offset: 2px;
+}
+
+/* --- Info animada --- */
+.info {
   background-color: #1a1d2a;
-  text-align: center;
-  padding: 15px;
-  color: #888;
-  margin-top: 40px;
+  border-left: 4px solid #00d8ff;
+  padding: 20px;
+  margin-top: 20px;
+  display: none;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
 }
 
+.futurista {
+  animation: glowFade 0.8s ease-out forwards;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+@keyframes glowFade {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+    box-shadow: 0 0 0 transparent;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    box-shadow: 0 0 15px #00d8ff;
+  }
+}
+
+/* Imagenes dentro de .info */
+.info img {
+  max-width: 100%;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+/* Sección contacto */
 #contacto {
   background-color: #1a1d2a;
   padding: 30px;
   border-top: 2px solid #00d8ff;
   margin-top: 40px;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 216, 255, 0.1);
+  box-shadow: 0 0 10px rgba(0, 216, 255, 0.5);
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
 }
 
+#contacto h2 {
+  color: #00d8ff;
+  margin-bottom: 15px;
+}
+
 #contacto a {
-  color: #00d8ff;
+  color: #00ffb3;
   text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
 }
 
-#contacto a:hover {
+#contacto a:hover,
+#contacto a:focus-visible {
   text-decoration: underline;
-}
-.menu-toggle {
-  display: none;
-  font-size: 28px;
-  cursor: pointer;
   color: #00d8ff;
+  outline: none;
 }
 
+/* Footer */
+footer {
+  text-align: center;
+  padding: 15px;
+  background-color: #12151d;
+  color: #555;
+  font-size: 0.9em;
+  margin-top: 40px;
+}
+
+/* --- Responsive --- */
 @media (max-width: 768px) {
-  nav ul {
-    display: none;
-    flex-direction: column;
-    background-color: #1a1d2a;
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    border: 1px solid #00d8ff;
-    border-radius: 10px;
-    padding: 10px;
-    box-shadow: 0 0 10px rgba(0, 216, 255, 0.2);
-  }
-
-  nav ul.visible {
-    display: flex;
-  }
-
   .menu-toggle {
     display: block;
   }
 
-  nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-}
-.flex-layout {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-  padding: 20px;
-}
-
-.izquierda, .derecha {
-  flex: 1 1 45%;
-}
-
-.izquierda h1, .derecha h2 {
-  margin-top: 0;
-}
-
-/* Asegura que en pantallas pequeñas se vean en columna */
-@media (max-width: 768px) {
-  .flex-layout {
+  nav ul.menu {
     flex-direction: column;
-    text-align: center;
+    background-color: #1a1d2a;
+    position: absolute;
+    top: 55px;
+    right: 0;
+    width: 200px;
+    padding: 10px 0;
+    border-radius: 0 0 0 8px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.4);
   }
 
-  .izquierda, .derecha {
-    flex: 1 1 100%;
+  nav ul.menu li {
+    text-align: center;
+    margin: 10px 0;
+  }
+
+  main {
+    padding: 15px 10px;
+  }
+
+  .botones {
+    flex-direction: column;
   }
 }
-.contenido-centro {
-  text-align: center;
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 40px 20px;
-}
-.areas-app {
-  text-align: center;
-  margin-top: 60px;
-  padding: 20px;
-}
+
 .scroll-anim {
   opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
 }
 
 .scroll-anim.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+.cta-contacto {
+  display: inline-block;
+  margin-top: 20px;
+  background-color: #00ffb3;
+  color: #0f1117;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.cta-contacto:hover {
+  background-color: #00d8ff;
 }

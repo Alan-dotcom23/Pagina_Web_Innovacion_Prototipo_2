@@ -1,32 +1,33 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contacto - Aplicaciones del Software</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <nav>
-  <div class="menu-toggle" onclick="toggleMenu()">
-    &#9776;
-  </div>
-  <ul id="menu">
-    <li><a href="index.html">Inicio</a></li>
-    <li><a href="contacto.html">Contacto</a></li>
-  </ul>
-</nav>
+    <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu" id="menu-button">&#9776;</button>
+    <ul id="menu" class="menu" hidden>
+      <li>
+        <a href="index.html">
+          <img src="img/EduSoftware.png" alt="Ir al inicio" class="logo-nav" />
+        </a>
+      </li>
+      <li><a href="contacto.html" aria-current="page">Contacto</a></li>
+    </ul>
+  </nav>
 
-
-  <header>
+  <header class="scroll-anim header-centrado">
     <h1>Contacto</h1>
     <p>¿Tienes dudas o sugerencias? Contáctanos.</p>
   </header>
 
   <main>
-    <section id="contacto">
-      <h2>Correo electrónico</h2>
+    <section id="contacto" aria-label="Información de contacto">
+      <h2><i class="fas fa-envelope" aria-hidden="true"></i> Correo electrónico</h2>
       <p>Puedes escribirnos a:</p>
       <p><strong><a href="mailto:al.mancillav@duocuc.cl">al.mancillav@duocuc.cl</a></strong></p>
     </section>
@@ -35,5 +36,7 @@
   <footer>
     <p>&copy; 2025 Trabajo Escolar - Aplicaciones del Software</p>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

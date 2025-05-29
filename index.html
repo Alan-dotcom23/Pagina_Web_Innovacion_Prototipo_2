@@ -2,90 +2,63 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Inicio - Aplicaciones del Software</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
+  <nav>
+    <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu" id="menu-button">&#9776;</button>
+    <ul id="menu" class="menu" hidden>
+      <li>
+        <a href="index.html" aria-current="page">
+          <img src="img/EduSoftware.png" alt="Ir al inicio" class="logo-nav" />
+        </a>
+      </li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </nav>
 
-<script src="script.js"></script>
-<script>
-  function toggleMenu() {
-    const menu = document.getElementById('menu');
-    menu.classList.toggle('visible');
-  }
-</script>
-
-<nav>
-  <button class="menu-toggle" aria-label="Abrir menú" onclick="toggleMenu()">&#9776;</button>
-  <ul id="menu">
-    <li><a href="index.html">Inicio</a></li>
-    <li><a href="contacto.html">Contacto</a></li>
-  </ul>
-</nav>
-
-
-<header class="flex-layout scroll-anim">
-  <div class="izquierda">
+  <header class="scroll-anim header-centrado">
     <h1>Bienvenido</h1>
     <p>Explora cómo el software transforma diferentes sectores del mundo real.</p>
-  </div>
-  <div class="derecha">
-    <img src="img/EduSoftware.png" alt="Portada de software" class="portada" />
-  </div>
-</header>
+  </header>
 
-<main>
-  <section class="contenido-centro scroll-anim">
-    <h2>¿Qué es el software?</h2>
-    <p>El software es el conjunto de programas que permiten el funcionamiento de dispositivos tecnológicos. Gracias a ellos, podemos comunicarnos, aprender, entretenernos y trabajar.</p>
-  </section>
+  <main>
+    <section class="contenido-centro scroll-anim">
+      <h2>¿Qué es el software?</h2>
+      <p>El software es el conjunto de programas que permiten el funcionamiento de dispositivos tecnológicos. Gracias a ellos, podemos comunicarnos, aprender, entretenernos y trabajar.</p>
+    </section>
 
-  <section class="areas-app scroll-anim">
-    <h2>Áreas de Aplicación</h2>
-    <p>Descubre en qué sectores se aplica el software en la vida real.</p>
+    <section class="areas-app scroll-anim" aria-label="Áreas de aplicación del software">
+      <h2>Áreas de Aplicación</h2>
+      <p>Descubre en qué sectores se aplica el software en la vida real.</p>
 
-    <div class="botones">
-      <button onclick="mostrarInfo('educacion')">Educación</button>
-      <button onclick="mostrarInfo('medicina')">Medicina</button>
-      <button onclick="mostrarInfo('ingenieria')">Ingeniería</button>
-      <button onclick="mostrarInfo('entretenimiento')">Entretenimiento</button>
-    </div>
+      <div class="botones" role="list">
+        <button role="listitem" onclick="mostrarInfo('educacion')" aria-label="Mostrar información sobre Educación">
+          <i class="fas fa-graduation-cap" aria-hidden="true"></i> Educación
+        </button>
+        <button role="listitem" onclick="mostrarInfo('medicina')" aria-label="Mostrar información sobre Medicina">
+          <i class="fas fa-heartbeat" aria-hidden="true"></i> Medicina
+        </button>
+        <button role="listitem" onclick="mostrarInfo('ingenieria')" aria-label="Mostrar información sobre Ingeniería">
+          <i class="fas fa-cogs" aria-hidden="true"></i> Ingeniería
+        </button>
+        <button role="listitem" onclick="mostrarInfo('entretenimiento')" aria-label="Mostrar información sobre Entretenimiento">
+          <i class="fas fa-gamepad" aria-hidden="true"></i> Entretenimiento
+        </button>
+      </div>
 
-    <div id="info-area" class="info futurista"></div>
-  </section>
-</main>
-
-
+      <div id="info-area" class="info futurista" aria-live="polite" role="region" tabindex="0"></div>
+    </section>
+  </main>
 
   <footer>
     <p>&copy; 2025 Trabajo Escolar - Aplicaciones del Software</p>
+    <a href="mailto:al.mancillav@duocuc.cl" class="cta-contacto">Contáctanos</a>
   </footer>
 
-<script>
-  function toggleMenu() {
-    const menu = document.getElementById('menu');
-    menu.classList.toggle('visible');
-  }
-
-  // Animaciones que se activan y se desactivan al hacer scroll
-  const animElements = document.querySelectorAll('.scroll-anim');
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      } else {
-        entry.target.classList.remove('visible');
-      }
-    });
-  }, {
-    threshold: 0.2
-  });
-
-  animElements.forEach(el => observer.observe(el));
-</script>
-
+  <script src="script.js"></script>
 </body>
 </html>
