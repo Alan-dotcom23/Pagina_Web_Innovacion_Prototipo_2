@@ -277,3 +277,20 @@ footer {
 .cta-contacto:hover {
   background-color: #00d8ff;
 }
+
+.selector-futurista {
+  background-color: #1a1d2a;
+  color: #00d8ff;
+  border: 2px solid #00ffb3;
+  border-radius: 8px;
+  padding: 10px 15px;
+  font-size: 1em;
+  width: 250px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.selector-futurista:focus-visible {
+  outline: none;
+  border-color: #00d8ff;
+  box-shadow: 0 0 10px #00ffb3;
+}

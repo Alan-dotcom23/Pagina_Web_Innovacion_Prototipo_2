@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Generador de Pruebas</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <nav>
+    <button class="menu-toggle" id="menu-button">&#9776;</button>
+    <ul id="menu" class="menu" hidden>
+      <li><a href="index.html"><img src="img/EduSoftware.png" alt="Inicio" class="logo-nav" /></a></li>
+      <li><a href="generador.html" aria-current="page">Generador</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <header class="header-centrado">
+    <h1><i class="fas fa-brain"></i> Generador de Pruebas Personalizadas</h1>
+    <p>Selecciona la asignatura y nivel para crear tu prueba.</p>
+  </header>
+
+  <main>
+  <section class="contenido-centro scroll-anim">
+    <h2><i class="fas fa-robot"></i> ¿Qué es el Generador de Pruebas?</h2>
+    <p>Esta herramienta está diseñada para ayudar a docentes a crear rápidamente guías o exámenes personalizados según la <strong>asignatura</strong> y el <strong>nivel educativo</strong> de sus estudiantes.</p>
+
+    <p>🧠 <strong>¿Para qué sirve?</strong></p>
+    <ul>
+      <li>Generar preguntas automáticamente por nivel y materia.</li>
+      <li>Editar preguntas fácilmente.</li>
+      <li>Exportar el examen como guía descargable (.txt).</li>
+    </ul>
+
+    <p>🚀 <strong>Beneficios:</strong></p>
+    <ul>
+      <li>Ahorra tiempo en la preparación de clases.</li>
+      <li>Ofrece preguntas creativas adaptadas al nivel educativo.</li>
+      <li>Personalización total por parte del profesor.</li>
+    </ul>
+  </section>
+
+  <!-- Ya existente: generador de pruebas -->
+  <section class="contenido-centro scroll-anim">
+    <h2><i class="fas fa-sliders-h"></i> Crear Evaluación</h2>
+
+    <div style="text-align: center;">
+      <select id="asignatura" class="selector-futurista">
+        <option value="">-- Asignatura --</option>
+        <option value="matematicas">🧮 Matemáticas</option>
+        <option value="historia">📜 Historia</option>
+        <option value="ciencias">🔬 Ciencias</option>
+        <option value="lenguaje">📚 Lenguaje</option>
+      </select>
+
+      <select id="nivel" class="selector-futurista" style="margin-left: 10px;">
+        <option value="">-- Nivel --</option>
+        <option value="basica">Básica</option>
+        <option value="media">Media</option>
+        <option value="superior">Superior</option>
+      </select>
+
+      <br><br>
+      <button onclick="generarPreguntas()"><i class="fas fa-magic"></i> Generar Preguntas</button>
+    </div>
+
+    <div id="resultado" class="info futurista" tabindex="0" role="region" aria-live="polite"></div>
+
+    <div id="info-guia" class="info futurista" style="margin-top: 30px; display: none;">
+      <h3>Datos de la Guía</h3>
+      <label>Nombre del Profesor:</label><br>
+      <input type="text" id="nombre-profesor" class="selector-futurista" placeholder="Ej: Profe Juan Pérez" /><br><br>
+
+      <label>Fecha:</label><br>
+      <input type="date" id="fecha-guia" class="selector-futurista" /><br><br>
+
+      <button onclick="descargarGuia()">
+        <i class="fas fa-download"></i> Descargar Guía
+      </button>
+    </div>
+  </section>
+</main>
+
+
+  <footer>
+    <p>&copy; 2025 Trabajo Escolar - Aplicaciones del Software</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
